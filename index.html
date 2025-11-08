@@ -3,237 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dad’s & Friends Pickleball Club — Tournament</title>
+  <title>Dads & Friends Pickleball Club — Tournament</title>
+  <link href="https://fonts.cdnfonts.com/css/dodgers-script" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #fff;
-      color: #1f1f1f;
+    :root{
+      --orange:#e26e22;
+      --gold:#ffb400;
+      --ink:#1f1f1f;
+      --bg-soft:#fffef4;
+      --card-shadow:0 10px 40px rgba(0,0,0,.1);
     }
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* equal left/right gutters that center the content */
-  padding: 1rem calc((100vw - 1100px) / 2);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  z-index: 10;
-}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Poppins',sans-serif;background:#fff;color:var(--ink)}
 
-header img {
-  height: 40px; /* was 45px */
-}
+    /* HEADER */
+    header{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;position:fixed;top:0;left:0;right:0;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.05);z-index:1000}
+    header img{height:40px}
+    header a{text-decoration:none;background:var(--gold);color:#000;padding:.7rem 1.5rem;border-radius:40px;font-weight:600;transition:.3s;display:inline-block}
+    header a:hover{background:#ff7a00;color:#fff}
 
-    header a {
-      text-decoration: none;
-      background: #ffb400;
-      color: #000;
-      padding: 0.7rem 1.5rem;
-      border-radius: 40px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    header a:hover { background: #ff7a00; color: #fff; }
+    /* HERO (title only) */
+    .hero{padding:9rem 2rem 3rem;text-align:center;background:linear-gradient(135deg,#fff8e1,#fff)}
+    .hero h1{font-family:'Dodgers Script',cursive;font-size:6rem;color:var(--orange);margin:0;font-weight:400}
+    .hero h2{font-size:2rem;margin:.5rem 0 0;color:#000;font-weight:800}
 
-    .hero {
-      padding: 10rem 2rem 6rem;
-      text-align: center;
-      background: linear-gradient(135deg,#fff8e1,#fff);
-    }
-    .hero h1 {
-      font-size: 3.2rem;
-      color: #e26e22;
-      font-weight: 800;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 1rem auto;
-    }
-    .hero .cta {
-      display: inline-block;
-      margin-top: 2rem;
-      background: #1f1f1f;
-      color: #fff;
-      padding: 1rem 2.5rem;
-      border-radius: 40px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .hero .cta:hover { background: #ff7a00; transform: scale(1.05); }
+    /* OVERVIEW (big title + 3 cards + CTA) */
+    .overview{padding:2rem 2rem 4rem;text-align:center}
+    .overview-title{font-size:2.6rem;font-weight:800;margin:0 0 2rem}
+    .overview-grid{max-width:1100px;margin:0 auto 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+    .card{background:#fff;border-radius:20px;box-shadow:var(--card-shadow);padding:2rem;transition:.3s}
+    .card:hover{transform:translateY(-5px)}
+    .overview-card h3{margin:0 0 .5rem;color:var(--orange)}
+    .overview-cta{display:inline-block;background:#000;color:#fff;padding:1rem 2.5rem;border-radius:40px;font-weight:700;text-decoration:none;transition:.3s}
+    .overview-cta:hover{background:#ff7a00;transform:scale(1.05)}
 
-    .details {
-      padding: 6rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-      gap: 2rem;
-    }
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      padding: 2rem;
-      transition: 0.3s;
-    }
-    .card:hover { transform: translateY(-5px); }
-    .card h2 {
-      color: #e26e22;
-      margin-bottom: 1rem;
-    }
-    .card h3 {
-      margin-top: 1rem;
-      color: #004d40;
-    }
-    .card ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-    }
+    /* DETAILS (5 cards grid, balanced last row) */
+    .details{padding:4rem 2rem;max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;justify-content:center}
+    .details .card{flex:1 1 320px;max-width:340px}
+    .details h2{color:var(--orange);margin:0 0 1rem}
 
-    .register {
-      background: #fffef4;
-      padding: 6rem 2rem;
-    }
-    form {
-      max-width: 700px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 20px;
-      padding: 3rem;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    }
-    form h2 {
-      text-align: center;
-      color: #e26e22;
-      margin-bottom: 2rem;
-    }
-    label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    input, select {
-      width: 100%;
-      padding: 0.9rem;
-      border-radius: 10px;
-      border: 2px solid #eee;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }
-    input:focus, select:focus {
-      outline: none;
-      border-color: #ffb400;
-    }
-    button {
-      display: block;
-      margin: 0 auto;
-      background: #000;
-      color: #fff;
-      border: none;
-      padding: 1rem 2.5rem;
-      border-radius: 40px;
-      font-weight: 700;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-    button:hover { background: #ff7a00; transform: scale(1.05); }
+    /* REGISTER */
+    .register{background:var(--bg-soft);padding:6rem 2rem}
+    form{max-width:900px;margin:0 auto;background:#fff;border-radius:20px;padding:2rem 2.5rem;box-shadow:var(--card-shadow)}
+    form h2{text-align:center;color:var(--orange);margin:0 0 1.5rem}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.5rem}
+    .form-grid.wide{grid-template-columns:1fr}
+    label{font-weight:600;margin-bottom:.35rem;display:block}
+    input,select{width:100%;padding:.9rem;border:2px solid #eee;border-radius:10px;font-size:1rem}
+    input:focus,select:focus{outline:none;border-color:var(--gold)}
+    .form-actions{text-align:center;margin-top:1rem}
+    button{background:#000;color:#fff;border:none;padding:1rem 2.5rem;border-radius:40px;font-weight:700;cursor:pointer;transition:.3s}
+    button:hover{background:#ff7a00;transform:scale(1.05)}
+    .contact-btn{display:inline-block;margin-top:1.25rem;background:var(--gold);color:#000;padding:.8rem 2rem;border-radius:40px;text-decoration:none;font-weight:600}
 
-    footer {
-      background: #000;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
+    footer{background:#000;color:#fff;text-align:center;padding:2rem 1rem}
+
+    @media(max-width:680px){
+      .hero h1{font-size:4.2rem}
+      .overview-title{font-size:2.1rem}
+      .form-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
+  <!-- HEADER -->
+  <header>
+    <img src="./logo.png" alt="Dads & Friends Logo">
+    <a href="#register">Register</a>
+  </header>
 
-<header>
-  <img src="./logo.png" alt="Dad’s & Friends Logo">
-  <a href="#register">Register</a>
-</header>
+  <!-- 1) TITLE SECTION -->
+  <section id="hero" class="hero">
+    <h1>Dads & Friends</h1>
+    <h2>Pickleball Club</h2>
+  </section>
 
-<section class="hero">
-  <h1>Dad’s & Friends Pickleball Club</h1>
-  <p>End-of-Year Tournament Invitation</p>
-  <p>📅 Sunday, 21 December | 🕐 From 1:30 pm — until victory! | 💰 $30 per player</p>
-  <a href="#register" class="cta">Join the Tournament</a>
-</section>
+  <!-- 2) OVERVIEW SECTION: Big title + 3 cards + CTA -->
+  <section id="overview" class="overview">
+    <h2 class="overview-title">End‑of‑Year Tournament</h2>
+    <div class="overview-grid">
+      <article class="card overview-card">
+        <h3>📅 Date</h3>
+        <p>Sunday, 21 December</p>
+      </article>
+      <article class="card overview-card">
+        <h3>🕐 Time</h3>
+        <p>From 1:30 pm — until victory!</p>
+      </article>
+      <article class="card overview-card">
+        <h3>💰 Entry</h3>
+        <p>$30 per player</p>
+      </article>
+    </div>
+    <a href="#register" class="overview-cta">Join the Tournament</a>
+  </section>
 
-<section class="details">
-  <div class="card">
-    <h2>🔥 8-Team Format</h2>
-    <ul>
-      <li>2 groups of 4 (3 qualifying games per team)</li>
-      <li>Games to 15 points, 25-minute time limit</li>
-      <li>Same number of wins: 5-point rally tiebreaker (first to 5)</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h2>💪 10-Team Format</h2>
-    <ul>
-      <li>2 groups of 5 (4 qualifying games per team)</li>
-      <li>Games to 11 points, 15-minute time limit</li>
-      <li>Same tiebreaker rule applies (first to 5)</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h2>🏅 Semi-Finals</h2>
-    <p>Group 1 #1 vs Group 2 #2 | Group 2 #1 vs Group 1 #2</p>
-    <p>Games to 15, first to 15, 25-minute limit.</p>
-  </div>
-  <div class="card">
-    <h2>🏆 Finals</h2>
-    <p>Winners of the semi-finals face off.<br>Game to 21, first to 21 — last team standing wins! 😉</p>
-  </div>
-  <div class="card">
-    <h2>🎖️ Courts & Prizes</h2>
-    <ul>
-      <li>Two courts — Men’s and Women’s qualifiers run separately</li>
-      <li>🏆 Winners: Trophy + $100 Pickleball Gear Voucher (per player)</li>
-      <li>🙃 Losers: Thanks for playing — and for the laughs!</li>
-    </ul>
-  </div>
-</section>
+  <!-- 3) DETAILS SECTION: 5 cards (unchanged content) -->
+  <section id="details" class="details">
+    <article class="card" id="format-8">
+      <h2>🔥 8–Team Format</h2>
+      <ul>
+        <li>2 groups of 4 (3 qualifying games per team)</li>
+        <li>Games to 15 points, 25-minute time limit</li>
+        <li>Same number of wins: 5-point rally tiebreaker (first to 5)</li>
+      </ul>
+    </article>
 
-<section id="register" class="register">
-  <form action="mailto:remyleblanc@hotmail.com" method="post" enctype="text/plain">
-    <h2>Register Your Team</h2>
-    <label for="category">Category</label>
-    <select id="category" name="category" required>
-      <option value="">Select...</option>
-      <option value="Men’s Doubles">Men’s Doubles</option>
-      <option value="Women’s Doubles">Women’s Doubles</option>
-    </select>
+    <article class="card" id="format-10">
+      <h2>💪 10–Team Format</h2>
+      <ul>
+        <li>2 groups of 5 (4 qualifying games per team)</li>
+        <li>Games to 11 points, 15-minute time limit</li>
+        <li>Same tiebreaker rule applies (first to 5)</li>
+      </ul>
+    </article>
 
-    <label for="team">Team Name</label>
-    <input type="text" id="team" name="team" required>
+    <article class="card" id="semis">
+      <h2>🥉 Semi-Finals</h2>
+      <p>Group 1 #1 vs Group 2 #2 | Group 2 #1 vs Group 1 #2</p>
+      <p>Games to 15, first to 15, 25-minute limit.</p>
+    </article>
 
-    <label for="player1">Player 1 Name</label>
-    <input type="text" id="player1" name="player1" required>
+    <article class="card" id="finals">
+      <h2>🏆 Finals</h2>
+      <p>Winners of the semi-finals face off.<br>Game to 21, first to 21 — last team standing wins! 😉</p>
+    </article>
 
-    <label for="player2">Player 2 Name</label>
-    <input type="text" id="player2" name="player2" required>
+    <article class="card" id="prizes">
+      <h2>🎖️ Courts & Prizes</h2>
+      <ul>
+        <li>Two courts — Men’s and Women’s qualifiers run separately</li>
+        <li>🏆 Winners: Trophy + $100 Pickleball Gear Voucher (per player)</li>
+        <li>🙃 Losers: Thanks for playing — and for the laughs!</li>
+      </ul>
+    </article>
+  </section>
 
-    <label for="email">Contact Email</label>
-    <input type="email" id="email" name="email" required>
+  <!-- 4) REGISTER SECTION: restored full form + contact button -->
+  <section id="register" class="register">
+    <form action="mailto:remyleblanc@hotmail.com" method="post" enctype="text/plain">
+      <h2>Register Your Team</h2>
+      <div class="form-grid wide">
+        <div>
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="">Select...</option>
+            <option value="Men’s Doubles">Men’s Doubles</option>
+            <option value="Women’s Doubles">Women’s Doubles</option>
+          </select>
+        </div>
+        <div>
+          <label for="team">Team Name</label>
+          <input type="text" id="team" name="team" required>
+        </div>
+        <div>
+          <label for="player1">Player 1 Name</label>
+          <input type="text" id="player1" name="player1" required>
+        </div>
+        <div>
+          <label for="player2">Player 2 Name</label>
+          <input type="text" id="player2" name="player2" required>
+        </div>
+        <div>
+          <label for="email">Contact Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit">Submit Registration</button>
+      </div>
+    </form>
 
-    <button type="submit">Submit Registration</button>
-  </form>
-</section>
+    <p style="text-align:center">
+      <a class="contact-btn" href="mailto:remyleblanc@hotmail.com">Contact</a>
+    </p>
+  </section>
 
-<footer>
-  © 2025 Dad’s & Friends Pickleball Club — See you on the court!
-</footer>
-
+  <footer>
+    © 2025 Dads & Friends Pickleball Club — See you on the court!
+  </footer>
 </body>
 </html>
