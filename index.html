@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dads & Friends Pickleball Club — Tournament</title>
-<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dads & Friends Pickleball Club — Tournament</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
     :root{
       --orange:#e26e22;
       --gold:#ffb400;
@@ -17,33 +16,28 @@
     *{box-sizing:border-box}
     body{margin:0;font-family:'Poppins',sans-serif;background:#fff;color:var(--ink)}
 
-    /* HEADER */
     header{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;position:fixed;top:0;left:0;right:0;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.05);z-index:1000}
     header img{height:40px}
     header a{text-decoration:none;background:var(--gold);color:#000;padding:.7rem 1.5rem;border-radius:40px;font-weight:600;transition:.3s;display:inline-block}
     header a:hover{background:#ff7a00;color:#fff}
 
-    /* HERO (title only) */
     .hero{padding:9rem 2rem 3rem;text-align:center;background:linear-gradient(135deg,#fff8e1,#fff)}
-    .hero h1{font-family:'Dodgers Script',cursive;font-size:6rem;color:var(--orange);margin:0;font-weight:400}
+    .hero h1{font-family:'Lobster',cursive;font-size:6rem;color:var(--orange);margin:0;font-weight:400}
     .hero h2{font-size:2rem;margin:.5rem 0 0;color:#000;font-weight:800}
 
-    /* OVERVIEW (big title + 3 cards + CTA) */
     .overview{padding:2rem 2rem 4rem;text-align:center}
     .overview-title{font-size:2.6rem;font-weight:800;margin:0 0 2rem}
-    .overview-grid{max-width:1100px;margin:0 auto 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+    .overview-grid{max-width:1100px;margin:0 auto 2rem;display:grid;grid-template-columns:repeat(2,minmax(260px,1fr));gap:1.5rem}
     .card{background:#fff;border-radius:20px;box-shadow:var(--card-shadow);padding:2rem;transition:.3s}
     .card:hover{transform:translateY(-5px)}
     .overview-card h3{margin:0 0 .5rem;color:var(--orange)}
     .overview-cta{display:inline-block;background:#000;color:#fff;padding:1rem 2.5rem;border-radius:40px;font-weight:700;text-decoration:none;transition:.3s}
     .overview-cta:hover{background:#ff7a00;transform:scale(1.05)}
 
-    /* DETAILS (5 cards grid, balanced last row) */
     .details{padding:4rem 2rem;max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;justify-content:center}
     .details .card{flex:1 1 320px;max-width:340px}
     .details h2{color:var(--orange);margin:0 0 1rem}
 
-    /* REGISTER */
     .register{background:var(--bg-soft);padding:6rem 2rem}
     form{max-width:900px;margin:0 auto;background:#fff;border-radius:20px;padding:2rem 2.5rem;box-shadow:var(--card-shadow)}
     form h2{text-align:center;color:var(--orange);margin:0 0 1.5rem}
@@ -67,19 +61,16 @@
   </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <img src="./logo.png" alt="Dads & Friends Logo">
     <a href="#register">Register</a>
   </header>
 
-  <!-- 1) TITLE SECTION -->
   <section id="hero" class="hero">
     <h1>Dads & Friends</h1>
     <h2>Pickleball Club</h2>
   </section>
 
-  <!-- 2) OVERVIEW SECTION: Big title + 3 cards + CTA -->
   <section id="overview" class="overview">
     <h2 class="overview-title">End‑of‑Year Tournament</h2>
     <div class="overview-grid">
@@ -95,11 +86,14 @@
         <h3>💰 Entry</h3>
         <p>$30 per player</p>
       </article>
+      <article class="card overview-card">
+        <h3>🎯 DUPR</h3>
+        <p>Max DUPR 4.0<br>Average Team DUPR 3.5</p>
+      </article>
     </div>
     <a href="#register" class="overview-cta">Join the Tournament</a>
   </section>
 
-  <!-- 3) DETAILS SECTION: 5 cards (unchanged content) -->
   <section id="details" class="details">
     <article class="card" id="format-8">
       <h2>🔥 8–Team Format</h2>
@@ -140,7 +134,6 @@
     </article>
   </section>
 
-  <!-- 4) REGISTER SECTION: restored full form + contact button -->
   <section id="register" class="register">
     <form action="mailto:remyleblanc@hotmail.com" method="post" enctype="text/plain">
       <h2>Register Your Team</h2>
