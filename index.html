@@ -1,192 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dads & Friends Pickleball Club — Tournament</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    /* ==================== GLOBAL STYLES ==================== */
-    :root{
-      --orange:#e26e22;
-      --gold:#ffb400;
-      --ink:#1f1f1f;
-      --bg-soft:#fffef4;
-      --card-shadow:0 10px 40px rgba(0,0,0,.1);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Poppins',sans-serif;background:#fff;color:var(--ink)}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dads & Friends Pickleball Club — End-of-Year Tournament</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Poppins', sans-serif; }
+      h1,h2,h3 { font-family: 'Poppins', sans-serif; }
+      .lobster { font-family: 'Lobster', cursive; }
+    </style>
+  </head>
 
-    /* ==================== HEADER ==================== */
-    header{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;position:fixed;top:0;left:0;right:0;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.05);z-index:1000}
-    header img{height:40px}
-    header a{text-decoration:none;background:var(--gold);color:#000;padding:.7rem 1.5rem;border-radius:40px;font-weight:600;transition:.3s;display:inline-block}
-    header a:hover{background:#ff7a00;color:#fff}
+  <body class="bg-white text-neutral-900">
 
-    /* ==================== HERO SECTION ==================== */
-    .hero{padding:9rem 2rem 3rem;text-align:center;background:linear-gradient(135deg,#fff8e1,#fff)}
-    .hero h1{font-family:'Lobster',cursive;font-size:6rem;color:var(--orange);margin:0;font-weight:400}
-    .hero h2{font-size:2rem;margin:.5rem 0 0;color:#000;font-weight:800}
+    <!-- ==================== HEADER ==================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm flex justify-between items-center px-6 py-3">
+      <img src="./logo.png" alt="Dads & Friends Logo" class="h-10">
+      <a href="#register" class="bg-amber-400 text-black font-semibold rounded-full px-5 py-2 hover:bg-orange-500 hover:text-white transition">
+        Register
+      </a>
+    </header>
 
-    /* ==================== OVERVIEW (END-OF-YEAR SECTION) ==================== */
-    .overview{padding:2rem 2rem 4rem;text-align:center}
-    .overview-title{font-size:2.6rem;font-weight:800;margin:0 0 2rem}
-    .overview-grid{max-width:1100px;margin:0 auto 2rem;display:grid;grid-template-columns:repeat(2,minmax(260px,1fr));gap:1.5rem}
-    .card{background:#fff;border-radius:20px;box-shadow:var(--card-shadow);padding:2rem;transition:.3s}
-    .card:hover{transform:translateY(-5px)}
-    .overview-card h3{margin:0 0 .5rem;color:var(--orange)}
-    .overview-cta{display:inline-block;background:#000;color:#fff;padding:1rem 2.5rem;border-radius:40px;font-weight:700;text-decoration:none;transition:.3s}
-    .overview-cta:hover{background:#ff7a00;transform:scale(1.05)}
+    <!-- ==================== HERO ==================== -->
+    <section id="hero" class="pt-36 pb-10 text-center bg-gradient-to-br from-amber-50 to-white">
+      <h1 class="lobster text-6xl md:text-7xl text-orange-600 font-normal">Dads & Friends</h1>
+      <h2 class="text-2xl font-extrabold text-black mt-2">Pickleball Club</h2>
+    </section>
 
-    /* ==================== DETAILS (FORMAT) ==================== */
-    .details{padding:4rem 2rem;max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;justify-content:center}
-    .details .card{flex:1 1 320px;max-width:340px}
-    .details h2{color:var(--orange);margin:0 0 1rem}
+    <!-- ==================== OVERVIEW (END-OF-YEAR) ==================== -->
+    <section id="overview" class="text-center px-4 pb-16">
+      <h2 class="text-3xl font-extrabold mb-8">End-of-Year Tournament</h2>
 
-    /* ==================== REGISTER SECTION ==================== */
-    .register{background:var(--bg-soft);padding:6rem 2rem}
-    form{max-width:900px;margin:0 auto;background:#fff;border-radius:20px;padding:2rem 2.5rem;box-shadow:var(--card-shadow)}
-    form h2{text-align:center;color:var(--orange);margin:0 0 1.5rem}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.5rem}
-    .form-grid.wide{grid-template-columns:1fr}
-    label{font-weight:600;margin-bottom:.35rem;display:block}
-    input,select{width:100%;padding:.9rem;border:2px solid #eee;border-radius:10px;font-size:1rem}
-    input:focus,select:focus{outline:none;border-color:var(--gold)}
-    .form-actions{text-align:center;margin-top:1rem}
-    button{background:#000;color:#fff;border:none;padding:1rem 2.5rem;border-radius:40px;font-weight:700;cursor:pointer;transition:.3s}
-    button:hover{background:#ff7a00;transform:scale(1.05)}
-    .contact-btn{display:inline-block;margin-top:1.25rem;background:var(--gold);color:#000;padding:.8rem 2rem;border-radius:40px;text-decoration:none;font-weight:600}
-
-    /* ==================== FOOTER ==================== */
-    footer{background:#000;color:#fff;text-align:center;padding:2rem 1rem}
-
-    /* ==================== RESPONSIVE ==================== */
-    @media(max-width:680px){
-      .hero h1{font-size:4.2rem}
-      .overview-title{font-size:2.1rem}
-      .form-grid{grid-template-columns:1fr}
-    }
-  </style>
-</head>
-
-<body>
-  <!-- ==================== HEADER ==================== -->
-  <header>
-    <img src="./logo.png" alt="Dads & Friends Logo">
-    <a href="#register">Register</a>
-  </header>
-
-  <!-- ==================== HERO SECTION ==================== -->
-  <section id="hero" class="hero">
-    <h1>Dads & Friends</h1>
-    <h2>Pickleball Club</h2>
-  </section>
-
-
-  <section id="overview" class="overview">
-    <h2 class="overview-title">End‑of‑Year Tournament</h2>
-    <div class="overview-grid">
-      <article class="card overview-card">
-        <h3>📅 Date</h3>
-        <p>Sunday, 21 December</p>
-      </article>
-      <article class="card overview-card">
-        <h3>🕐 Time</h3>
-        <p>From 1:30 pm — until victory!</p>
-      </article>
-      <article class="card overview-card">
-        <h3>💰 Entry</h3>
-        <p>$30 per player</p>
-      </article>
-      <article class="card overview-card">
-        <h3>🎯 DUPR</h3>
-        <p>Max DUPR 4.0<br>Average Team DUPR 3.5</p>
-      </article>
-    </div>
-    <a href="#register" class="overview-cta">Join the Tournament</a>
-  </section>
-
-  <section id="details" class="details">
-    <article class="card" id="format-8">
-      <h2>🔥 8–Team Format</h2>
-      <ul>
-        <li>2 groups of 4 (3 qualifying games per team)</li>
-        <li>Games to 15 points, 25-minute time limit</li>
-        <li>Same number of wins: 5-point rally tiebreaker (first to 5)</li>
-      </ul>
-    </article>
-
-    <article class="card" id="format-10">
-      <h2>💪 10–Team Format</h2>
-      <ul>
-        <li>2 groups of 5 (4 qualifying games per team)</li>
-        <li>Games to 11 points, 15-minute time limit</li>
-        <li>Same tiebreaker rule applies (first to 5)</li>
-      </ul>
-    </article>
-
-    <article class="card" id="semis">
-      <h2>🥉 Semi-Finals</h2>
-      <p>Group 1 #1 vs Group 2 #2 | Group 2 #1 vs Group 1 #2</p>
-      <p>Games to 15, first to 15, 25-minute limit.</p>
-    </article>
-
-    <article class="card" id="finals">
-      <h2>🏆 Finals</h2>
-      <p>Winners of the semi-finals face off.<br>Game to 21, first to 21 — last team standing wins! 😉</p>
-    </article>
-
-    <article class="card" id="prizes">
-      <h2>🎖️ Courts & Prizes</h2>
-      <ul>
-        <li>Two courts — Men’s and Women’s qualifiers run separately</li>
-        <li>🏆 Winners: Trophy + $100 Pickleball Gear Voucher (per player)</li>
-        <li>🙃 Losers: Thanks for playing — and for the laughs!</li>
-      </ul>
-    </article>
-  </section>
-
-  <section id="register" class="register">
-    <form action="mailto:remyleblanc@hotmail.com" method="post" enctype="text/plain">
-      <h2>Register Your Team</h2>
-      <div class="form-grid wide">
-        <div>
-          <label for="category">Category</label>
-          <select id="category" name="category" required>
-            <option value="">Select...</option>
-            <option value="Men’s Doubles">Men’s Doubles</option>
-            <option value="Women’s Doubles">Women’s Doubles</option>
-          </select>
-        </div>
-        <div>
-          <label for="team">Team Name</label>
-          <input type="text" id="team" name="team" required>
-        </div>
-        <div>
-          <label for="player1">Player 1 Name</label>
-          <input type="text" id="player1" name="player1" required>
-        </div>
-        <div>
-          <label for="player2">Player 2 Name</label>
-          <input type="text" id="player2" name="player2" required>
-        </div>
-        <div>
-          <label for="email">Contact Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
+      <div class="mx-auto grid max-w-4xl grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+        <article class="bg-white rounded-2xl shadow-md p-6 hover:-translate-y-1 transition">
+          <h3 class="text-orange-600 font-semibold mb-1">📅 Date</h3>
+          <p>Sunday, 21 December</p>
+        </article>
+        <article class="bg-white rounded-2xl shadow-md p-6 hover:-translate-y-1 transition">
+          <h3 class="text-orange-600 font-semibold mb-1">🕐 Time</h3>
+          <p>From 1:30 pm — until victory!</p>
+        </article>
+        <article class="bg-white rounded-2xl shadow-md p-6 hover:-translate-y-1 transition">
+          <h3 class="text-orange-600 font-semibold mb-1">💰 Entry</h3>
+          <p>$30 per player</p>
+        </article>
+        <article class="bg-white rounded-2xl shadow-md p-6 hover:-translate-y-1 transition">
+          <h3 class="text-orange-600 font-semibold mb-1">🎯 DUPR</h3>
+          <p>Max DUPR 4.0<br>Average Team DUPR 3.5</p>
+        </article>
       </div>
-      <div class="form-actions">
-        <button type="submit">Submit Registration</button>
+
+      <a href="#register" class="inline-block bg-black text-white font-bold rounded-full px-8 py-3 hover:bg-orange-500 transition">
+        Join the Tournament
+      </a>
+    </section>
+
+    <!-- ==================== TOURNAMENT FORMAT ==================== -->
+    <section id="details" class="max-w-5xl mx-auto px-4 py-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+      <article class="bg-white rounded-2xl shadow-md p-6">
+        <h2 class="text-orange-600 font-bold mb-2">🔥 8-Team Format</h2>
+        <ul class="list-disc list-inside space-y-1 text-neutral-800">
+          <li>2 groups of 4 (3 qualifying games per team)</li>
+          <li>Games to 15 points, 25-minute limit</li>
+          <li>Tie: 5-point rally tiebreaker (first to 5)</li>
+        </ul>
+      </article>
+
+      <article class="bg-white rounded-2xl shadow-md p-6">
+        <h2 class="text-orange-600 font-bold mb-2">💪 10-Team Format</h2>
+        <ul class="list-disc list-inside space-y-1 text-neutral-800">
+          <li>2 groups of 5 (4 qualifying games per team)</li>
+          <li>Games to 11 points, 15-minute limit</li>
+          <li>Tiebreaker rule applies (first to 5)</li>
+        </ul>
+      </article>
+
+      <article class="bg-white rounded-2xl shadow-md p-6">
+        <h2 class="text-orange-600 font-bold mb-2">🥉 Semi-Finals</h2>
+        <p>Group 1 #1 vs Group 2 #2 | Group 2 #1 vs Group 1 #2</p>
+        <p>Games to 15 — 25-minute limit.</p>
+      </article>
+
+      <article class="bg-white rounded-2xl shadow-md p-6">
+        <h2 class="text-orange-600 font-bold mb-2">🏆 Finals</h2>
+        <p>Winners of semi-finals face off.<br>Game to 21 — last team standing wins! 😉</p>
+      </article>
+
+      <article class="bg-white rounded-2xl shadow-md p-6 sm:col-span-2 lg:col-span-3">
+        <h2 class="text-orange-600 font-bold mb-2">🎖️ Courts & Prizes</h2>
+        <ul class="list-disc list-inside space-y-1 text-neutral-800">
+          <li>Two courts — Men’s and Women’s qualifiers run separately</li>
+          <li>🏆 Winners: Trophy + $100 Gear Voucher (per player)</li>
+          <li>🙃 Losers: Thanks for playing — and for the laughs!</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ==================== REGISTER TEAM ==================== -->
+    <section id="register" class="bg-amber-50 py-20 px-4">
+      <form action="mailto:remyleblanc@hotmail.com" method="post" enctype="text/plain" class="max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-8">
+        <h2 class="text-center text-3xl font-bold text-orange-600 mb-8">Register Your Team</h2>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label for="category" class="font-semibold block mb-1">Category</label>
+            <select id="category" name="category" required class="w-full border-2 border-neutral-200 rounded-lg p-2 focus:border-amber-400">
+              <option value="">Select...</option>
+              <option value="Men’s Doubles">Men’s Doubles</option>
+              <option value="Women’s Doubles">Women’s Doubles</option>
+            </select>
+          </div>
+          <div>
+            <label for="team" class="font-semibold block mb-1">Team Name</label>
+            <input type="text" id="team" name="team" required class="w-full border-2 border-neutral-200 rounded-lg p-2 focus:border-amber-400">
+          </div>
+          <div>
+            <label for="player1" class="font-semibold block mb-1">Player 1 Name</label>
+            <input type="text" id="player1" name="player1" required class="w-full border-2 border-neutral-200 rounded-lg p-2 focus:border-amber-400">
+          </div>
+          <div>
+            <label for="player2" class="font-semibold block mb-1">Player 2 Name</label>
+            <input type="text" id="player2" name="player2" required class="w-full border-2 border-neutral-200 rounded-lg p-2 focus:border-amber-400">
+          </div>
+          <div class="md:col-span-2">
+            <label for="email" class="font-semibold block mb-1">Contact Email</label>
+            <input type="email" id="email" name="email" required class="w-full border-2 border-neutral-200 rounded-lg p-2 focus:border-amber-400">
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button type="submit" class="bg-black text-white font-bold rounded-full px-8 py-3 hover:bg-orange-500 transition">
+            Submit Registration
+          </button>
+        </div>
+      </form>
+
+      <div class="text-center mt-8">
+        <a href="mailto:remyleblanc@hotmail.com" class="inline-block bg-amber-400 text-black font-semibold rounded-full px-6 py-2 hover:bg-orange-500 hover:text-white transition">
+          Contact
+        </a>
       </div>
-    </form>
+    </section>
 
-    <p style="text-align:center">
-      <a class="contact-btn" href="mailto:remyleblanc@hotmail.com">Contact</a>
-    </p>
-  </section>
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-black text-white text-center py-8 px-4">
+      © 2025 Dads & Friends Pickleball Club — See you on the court!
+    </footer>
 
-  <footer>
-    © 2025 Dads & Friends Pickleball Club — See you on the court!
-  </footer>
-</body>
+  </body>
 </html>
